@@ -4,9 +4,9 @@ namespace DataWebScraping.Common.DataWebScraperSteps
 {
     public class DataWebScraperThreadHolderFactory
     {
-        public ThreadHolderManager GetDataWebScraperThreadHolder()
+        public ThreadHolderManager GetDataWebScraperThreadHolder(long millisecondsToHold)
         {
-            return new ThreadHolderManager();
+            return new ThreadHolderManager(millisecondsToHold);
         }
     }
 }

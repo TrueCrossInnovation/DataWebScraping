@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DataWebScraping.Common.DataWebScrapingStepProperties;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -24,9 +25,12 @@ namespace DataWebScraping.Common.DataWebScraperSteps
         public void Execute(WebBrowser webBrowser)
         {
             IDataWebScraperStepProperty urlProperty = DataWebScrapperStepPropertyValidator.GetFirstProperty(DataWebScraperStepPropertyType.Url, DataWebScraperStepProperties);
-            DataWebScrapperStepPropertyValidator.ValidatePropertyValueNotEmpty(urlProperty);
+            IDataWebScraperStepProperty millisecondsToHoldProperty = DataWebScrapperStepPropertyValidator.GetFirstProperty(DataWebScraperStepPropertyType.MillisecondsToHold, DataWebScraperStepProperties);
 
-            ThreadHolderManager dataWebScraperThreadHolder = DataWebScraperThreadHolderFactory.GetDataWebScraperThreadHolder();
+            DataWebScrapperStepPropertyValidator.ValidatePropertyValueNotEmpty(urlProperty);
+            DataWebScrapperStepPropertyValidator.ValidatePropertyValueNumericNotZero(millisecondsToHoldProperty);
+
+            ThreadHolderManager dataWebScraperThreadHolder = DataWebScraperThreadHolderFactory.GetDataWebScraperThreadHolder(long.Parse(millisecondsToHoldProperty.Value));
             dataWebScraperThreadHolder.SetThreadValue(false);
 
             webBrowser.DocumentCompleted += (object sender, WebBrowserDocumentCompletedEventArgs e) => {

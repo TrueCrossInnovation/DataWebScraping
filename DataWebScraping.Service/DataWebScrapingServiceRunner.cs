@@ -8,6 +8,7 @@ namespace DataWebScraping.Service
     {
         private static IDataWebScrapingServiceRunner _instance;
         public IDataWebScraperRunner DataWebScraperRunner { get; }
+        public WebBrowserFactory WebBrowserFactory { get; }
 
         public static IDataWebScrapingServiceRunner Instance()
         {            
@@ -16,20 +17,22 @@ namespace DataWebScraping.Service
                 DataWebScraperConfigurationFactory dataWebScraperStepFactory = new DataWebScraperConfigurationFactory();                
                 DataWebScraperConfigurationReader dataWebScraperConfigurationReader = new DataWebScraperConfigurationReader(dataWebScraperStepFactory);
                 IDataWebScraperRunner dataWebScraperRunner = new DataWebScraperRunner(dataWebScraperConfigurationReader, new WebBrowserFactory());
-                _instance = new DataWebScrapingServiceRunner(dataWebScraperRunner);
+                WebBrowserFactory webBrowserFactory = new WebBrowserFactory();
+                _instance = new DataWebScrapingServiceRunner(dataWebScraperRunner, webBrowserFactory);
             }
 
             return _instance;
         }
 
-        private DataWebScrapingServiceRunner(IDataWebScraperRunner dataWebScraperRunner)
+        private DataWebScrapingServiceRunner(IDataWebScraperRunner dataWebScraperRunner, WebBrowserFactory webBrowserFactory)
         {
             DataWebScraperRunner = dataWebScraperRunner;
+            WebBrowserFactory = webBrowserFactory;
         }
 
         public void Run(string dataWebScraperConfigurationFile)
         {
-            DataWebScraperRunner.Run(dataWebScraperConfigurationFile);
+            DataWebScraperRunner.Run(dataWebScraperConfigurationFile, WebBrowserFactory.GetWebBrowser());
         }
     }
 }

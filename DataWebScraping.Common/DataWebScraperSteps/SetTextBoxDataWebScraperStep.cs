@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DataWebScraping.Common.DataWebScrapingStepProperties;
+using System;
 using System.Collections.Generic;
 using System.Net;
 using System.Text;
@@ -21,26 +22,15 @@ namespace DataWebScraping.Common.DataWebScraperSteps
         }
 
         public void Execute(WebBrowser webBrowser)
-        {
-            IDataWebScraperStepProperty elementNameProperty = DataWebScrapperStepPropertyValidator.GetFirstProperty(DataWebScraperStepPropertyType.ElementName, DataWebScraperStepProperties);
+        {            
             IDataWebScraperStepProperty elementValueProperty = DataWebScrapperStepPropertyValidator.GetFirstProperty(DataWebScraperStepPropertyType.ElementValue, DataWebScraperStepProperties);
-            IDataWebScraperStepProperty attributeToFindElementByProperty = DataWebScrapperStepPropertyValidator.GetFirstProperty(DataWebScraperStepPropertyType.AttributeToFindElementBy, DataWebScraperStepProperties);
-            IEnumerable<IDataWebScraperStepProperty> attributeToMatchElementProperties = DataWebScrapperStepPropertyValidator.GetAllProperties(DataWebScraperStepPropertyType.AttributeToMatchElement, DataWebScraperStepProperties);
+            IEnumerable<IDataWebScraperStepProperty> attributeToFindElementByProperties = DataWebScrapperStepPropertyValidator.GetAllProperties(DataWebScraperStepPropertyType.AttributeToFindElementBy, DataWebScraperStepProperties);
+            
+            DataWebScrapperStepPropertyValidator.ValidatePropertyValueNotEmpty(elementValueProperty);            
+            DataWebScrapperStepPropertyValidator.ValidatePropertiesValueNotEmpty(attributeToFindElementByProperties);
 
-            DataWebScrapperStepPropertyValidator.ValidatePropertyValueNotEmpty(elementNameProperty);
-            DataWebScrapperStepPropertyValidator.ValidatePropertyValueNotEmpty(elementValueProperty);
-            DataWebScrapperStepPropertyValidator.ValidatePropertyValueNotEmpty(attributeToFindElementByProperty);
-            DataWebScrapperStepPropertyValidator.ValidatePropertiesValueNotEmpty(attributeToMatchElementProperties);
-
-
-            HtmlElement htmlElement = DataWebScraperElementFinder.FindElement(attributeToFindElementByProperty, attributeToMatchElementProperties, webBrowser);
-                         
-            if (htmlElement != null)
-            {
-                htmlElement.InnerText = elementValueProperty.Value;                
-            }
-
-            throw new MissingMemberException($"The element {elementNameProperty.Value} does not exist.");
+            HtmlElement htmlElement = DataWebScraperElementFinder.FindElement(attributeToFindElementByProperties, webBrowser);
+            htmlElement.InnerText = elementValueProperty.Value;
         }
     }
 }

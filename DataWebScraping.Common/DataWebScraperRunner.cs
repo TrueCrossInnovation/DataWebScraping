@@ -18,12 +18,10 @@ namespace DataWebScraping.Common
             WebBrowserFactory = webBrowserFactory;
         }        
 
-        public void Run(string dataWebScraperConfigurationFilePath)
+        public void Run(string dataWebScraperConfigurationFilePath, WebBrowser webBrowser)
         {
             IDataWebScraperConfiguration dataWebScraperConfiguration = DataWebScraperConfigurationReader.Read(dataWebScraperConfigurationFilePath);
-            string url = dataWebScraperConfiguration.MainPageUrl;
-
-            WebBrowser webBrowser = WebBrowserFactory.GetWebBrowser();            
+            string url = dataWebScraperConfiguration.MainPageUrl;        
 
             foreach (IDataWebScraperStep dataWebScraperStep in dataWebScraperConfiguration.DataWebScraperSteps)
             {

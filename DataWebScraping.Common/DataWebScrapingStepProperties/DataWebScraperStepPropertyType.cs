@@ -12,6 +12,6 @@ namespace DataWebScraping.Common.DataWebScrapingStepProperties
         public const string ElementName = "ElementName";
         public const string ElementValue = "ElementValue";
         public const string AttributeToFindElementBy = "AttributeToFindElementBy";
-        public const string AttributeToMatchElement = "AttributeToMatchElement";        
+        public const string MillisecondsToHold = "MillisecondsToHold";
     }
 }

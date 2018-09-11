@@ -7,57 +7,37 @@ using System.Windows.Forms;
 namespace DataWebScraping.Common.DataWebScraperSteps
 {
     public class DataWebScraperElementFinder
-    {
-        public HtmlElement FindElement(string elementNameToFindValue, string attributeToFindElementByPropertyValue, IEnumerable<string> attributeToMatchElementPropertyValues, WebBrowser webBrowser)
+    {      
+        public HtmlElement FindElement(IEnumerable<IDataWebScraperStepProperty> attributeToFindElementByProperties, WebBrowser webBrowser)
         {
-            //Creao que puedo usar solo esto en vez de obtener por id y despues por atrbituo,
-            //el id puede ser un atribute y solo pasar todos los atrbitueos
-
-            //foreach (HtmlElement HtmlElementitem in webBrowser.Document.Window.Frames[0].Document.Body.All)
-            //{
-            //    if (HtmlElementitem.GetAttribute("value") == "Go" &&
-            //        HtmlElementitem.GetAttribute("name") == "GoButton" &&
-            //        HtmlElementitem.GetAttribute("type") == "image")
-            //    {
-            //        HtmlElementitem.InvokeMember("click");
-            //        return true;
-            //    }
-            //}
-
-            List<HtmlElement> elements = new List<HtmlElement>();
-
-            if (attributeToFindElementByPropertyValue == AttributeToFindElementByType.Id)
+            if(attributeToFindElementByProperties.Count() <= 0)
             {
-                var element = webBrowser.Document.Window.Frames[0].Document.GetElementById(elementNameToFindValue);
-                if(element != null)
+                throw new NullReferenceException("The attrubutes to find elements could not be empty");
+            }
+
+            HtmlElement HtmlElementItemResult = null;
+
+            foreach (HtmlElement HtmlElementItem in webBrowser.Document.Window.Frames[0].Document.Body.All)
+            {                
+
+                foreach(IDataWebScraperStepProperty dataWebScraperStepProperty in attributeToFindElementByProperties)
                 {
-                    elements.Add(element);
+                    if (HtmlElementItem.GetAttribute(dataWebScraperStepProperty.Key) != dataWebScraperStepProperty.Value)
+                    {
+                        break;
+                    }
                 }
 
-            }else if (attributeToFindElementByPropertyValue == AttributeToFindElementByType.TagName)
-            {
-                HtmlElementCollection elems = webBrowser.Document.Window.Frames[0].Document.GetElementsByTagName(elementNameToFindValue);                
-                foreach(HtmlElement e in elems)
-                {
-                    elements.Add(e);
-                }
-            }   
-            
-            if(elements.Count == 0)
-            {
-                throw new MissingMemberException($"The element {elementNameToFindValue} does not exist.");
+                HtmlElementItemResult = HtmlElementItem;
+                break;
             }
 
-            if(attributeToMatchElementPropertyValues.Count() > 0)
+            if(HtmlElementItemResult == null)
             {
-
-            }
-            else
-            {
-                return elements.First();
+                throw new MissingMemberException("There is no element that match with the properties.");
             }
 
-            return null;
+            return HtmlElementItemResult;
         }
     }
 }

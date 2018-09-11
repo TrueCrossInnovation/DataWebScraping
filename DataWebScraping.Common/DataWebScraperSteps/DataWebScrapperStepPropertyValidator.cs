@@ -39,6 +39,23 @@ namespace DataWebScraping.Common.DataWebScraperSteps
             }
         }
 
+        internal void ValidatePropertyValueNumericNotZero(IDataWebScraperStepProperty dataWebScraperStepProperty)
+        {
+            ValidatePropertyValueNotEmpty(dataWebScraperStepProperty);
+
+            if (!int.TryParse(dataWebScraperStepProperty.Value, out int convertedProperty))
+            {
+                throw new NullReferenceException($"The property {dataWebScraperStepProperty.Key} does not contains a numeric value.");
+            }
+            else
+            {
+                if(convertedProperty == 0)
+                {
+                    throw new NullReferenceException($"The property {dataWebScraperStepProperty.Key} should not be zero.");
+                }
+            }
+        }
+
         public void ValidatePropertiesValueNotEmpty(IEnumerable<IDataWebScraperStepProperty> dataWebScraperStepProperties)
         {
             foreach(IDataWebScraperStepProperty dataWebScraperStepProperty in dataWebScraperStepProperties)
