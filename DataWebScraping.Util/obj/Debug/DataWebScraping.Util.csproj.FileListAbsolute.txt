@@ -1,0 +1,5 @@
+C:\Users\Fam Ordonez Enriquez\Source\Repos\DataWebScraping\DataWebScraping.Util\bin\Debug\DataWebScraping.Util.dll
+C:\Users\Fam Ordonez Enriquez\Source\Repos\DataWebScraping\DataWebScraping.Util\bin\Debug\DataWebScraping.Util.pdb
+C:\Users\Fam Ordonez Enriquez\Source\Repos\DataWebScraping\DataWebScraping.Util\obj\Debug\DataWebScraping.Util.csproj.CoreCompileInputs.cache
+C:\Users\Fam Ordonez Enriquez\Source\Repos\DataWebScraping\DataWebScraping.Util\obj\Debug\DataWebScraping.Util.dll
+C:\Users\Fam Ordonez Enriquez\Source\Repos\DataWebScraping\DataWebScraping.Util\obj\Debug\DataWebScraping.Util.pdb

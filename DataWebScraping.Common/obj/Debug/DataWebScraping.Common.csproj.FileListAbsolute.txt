@@ -1,0 +1,10 @@
+C:\Users\Fam Ordonez Enriquez\Source\Repos\DataWebScraping\DataWebScraping.Common\obj\Debug\DataWebScraping.Common.csprojResolveAssemblyReference.cache
+C:\Users\Fam Ordonez Enriquez\Source\Repos\DataWebScraping\DataWebScraping.Common\obj\Debug\DataWebScraping.Common.csproj.CoreCompileInputs.cache
+C:\Users\Fam Ordonez Enriquez\Source\Repos\DataWebScraping\DataWebScraping.Common\bin\Debug\DataWebScraping.Common.dll
+C:\Users\Fam Ordonez Enriquez\Source\Repos\DataWebScraping\DataWebScraping.Common\bin\Debug\DataWebScraping.Common.pdb
+C:\Users\Fam Ordonez Enriquez\Source\Repos\DataWebScraping\DataWebScraping.Common\bin\Debug\DataWebScraping.Util.dll
+C:\Users\Fam Ordonez Enriquez\Source\Repos\DataWebScraping\DataWebScraping.Common\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Fam Ordonez Enriquez\Source\Repos\DataWebScraping\DataWebScraping.Common\bin\Debug\DataWebScraping.Util.pdb
+C:\Users\Fam Ordonez Enriquez\Source\Repos\DataWebScraping\DataWebScraping.Common\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Fam Ordonez Enriquez\Source\Repos\DataWebScraping\DataWebScraping.Common\obj\Debug\DataWebScraping.Common.dll
+C:\Users\Fam Ordonez Enriquez\Source\Repos\DataWebScraping\DataWebScraping.Common\obj\Debug\DataWebScraping.Common.pdb
