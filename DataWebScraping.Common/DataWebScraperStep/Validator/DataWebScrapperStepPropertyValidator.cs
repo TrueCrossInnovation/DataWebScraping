@@ -1,8 +1,9 @@
-﻿using System;
+﻿using DataWebScraping.Common.DataWebScraperStep.Property;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace DataWebScraping.Common.DataWebScraperSteps
+namespace DataWebScraping.Common.DataWebScraperStep.Validator
 {
     public class DataWebScrapperStepPropertyValidator : IDataWebScrapperStepPropertyValidator
     {                        

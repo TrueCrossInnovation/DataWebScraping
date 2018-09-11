@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace DataWebScraping.Common.Interfaces
+namespace DataWebScraping.Common.Configuration
 {
     internal interface IDataWebScraperRawConfiguration
     {

@@ -1,4 +1,4 @@
-﻿namespace DataWebScraping.Common.DataWebScraperSteps
+﻿namespace DataWebScraping.Common.DataWebScraperStep.Property
 {
     public class DataWebScraperStepProperty : IDataWebScraperStepProperty
     {

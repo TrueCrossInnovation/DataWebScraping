@@ -44,29 +44,30 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DataWebScraperConfiguration.cs" />
-    <Compile Include="DataWebScraperConfigurationFactory.cs" />
-    <Compile Include="DataWebScraperConfigurationReader.cs" />
+    <Compile Include="Configuration\DataWebScraperConfiguration.cs" />
+    <Compile Include="Configuration\DataWebScraperConfigurationFactory.cs" />
+    <Compile Include="Configuration\DataWebScraperConfigurationReader.cs" />
+    <Compile Include="Configuration\DataWebScraperConfigurationWriter.cs" />
+    <Compile Include="Configuration\IDataWebScraperConfigurationWriter.cs" />
+    <Compile Include="Configuration\IDataWebScraperRawStep.cs" />
     <Compile Include="DataWebScraperRunner.cs" />
-    <Compile Include="DataWebScraperSteps\DataWebScraperElementFinder.cs" />
-    <Compile Include="DataWebScraperSteps\DataWebScraperStepProperty.cs" />
-    <Compile Include="DataWebScrapingStepProperties\AttributeToFindElementByType.cs" />
-    <Compile Include="DataWebScrapingStepProperties\DataWebScraperStepPropertyType.cs" />
-    <Compile Include="DataWebScraperSteps\DataWebScraperStepType.cs" />
-    <Compile Include="DataWebScraperSteps\DataWebScraperThreadHolder.cs" />
-    <Compile Include="DataWebScraperSteps\DataWebScraperThreadManagerFactory.cs" />
-    <Compile Include="DataWebScraperSteps\DataWebScrapperStepPropertyValidator.cs" />
-    <Compile Include="DataWebScraperSteps\IDataWebScraperStep.cs" />
-    <Compile Include="DataWebScraperSteps\IDataWebScraperStepProperty.cs" />
-    <Compile Include="DataWebScraperSteps\IDataWebScrapperStepPropertyValidator.cs" />
-    <Compile Include="DataWebScraperSteps\LoadWebPageDataWebScraperStep.cs" />
-    <Compile Include="DataWebScraperSteps\SetTextBoxDataWebScraperStep.cs" />
-    <Compile Include="Interfaces\IDataWebScraperConfiguration.cs" />
-    <Compile Include="Interfaces\IDataWebScraperConfigurationReader.cs" />
-    <Compile Include="Interfaces\IDataWebScraperRawConfiguration.cs" />
-    <Compile Include="Interfaces\IDataWebScraperRawStep.cs" />
-    <Compile Include="Interfaces\IDataWebScraperServiceRunner.cs" />
-    <Compile Include="Interfaces\IDataWebScraperStepFactory.cs" />
+    <Compile Include="WebBrowserUtility\DataWebScraperElementFinder.cs" />
+    <Compile Include="DataWebScraperStep\Property\DataWebScraperStepProperty.cs" />
+    <Compile Include="DataWebScraperStep\Property\AttributeToFindElementByType.cs" />
+    <Compile Include="DataWebScraperStep\Property\DataWebScraperStepPropertyType.cs" />
+    <Compile Include="DataWebScraperStep\DataWebScraperStepType.cs" />
+    <Compile Include="DataWebScraperStep\Validator\DataWebScrapperStepPropertyValidator.cs" />
+    <Compile Include="DataWebScraperStep\IDataWebScraperStep.cs" />
+    <Compile Include="DataWebScraperStep\Property\IDataWebScraperStepProperty.cs" />
+    <Compile Include="DataWebScraperStep\Validator\IDataWebScrapperStepPropertyValidator.cs" />
+    <Compile Include="DataWebScraperStep\LoadWebPageDataWebScraperStep.cs" />
+    <Compile Include="DataWebScraperStep\SetTextBoxDataWebScraperStep.cs" />
+    <Compile Include="Configuration\IDataWebScraperConfiguration.cs" />
+    <Compile Include="Configuration\IDataWebScraperConfigurationReader.cs" />
+    <Compile Include="Configuration\IDataWebScraperRawConfiguration.cs" />
+    <Compile Include="DataWebScraperStep\IDataWebScraperStepRaw.cs" />
+    <Compile Include="IDataWebScraperServiceRunner.cs" />
+    <Compile Include="DataWebScraperStep\IDataWebScraperStepFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -1,10 +1,10 @@
-﻿using DataWebScraping.Common.DataWebScrapingStepProperties;
+﻿using DataWebScraping.Common.DataWebScraperStep.Property;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 
-namespace DataWebScraping.Common.DataWebScraperSteps
+namespace DataWebScraping.Common.WebBrowserUtility
 {
     public class DataWebScraperElementFinder
     {      

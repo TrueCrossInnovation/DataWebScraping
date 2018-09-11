@@ -1,6 +1,6 @@
 ﻿using System.Windows.Forms;
 
-namespace DataWebScraping.Common.Interfaces
+namespace DataWebScraping.Common
 {
     public interface IDataWebScraperRunner
     {

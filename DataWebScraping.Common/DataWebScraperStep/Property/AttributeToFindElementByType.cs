@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DataWebScraping.Common.DataWebScrapingStepProperties
+namespace DataWebScraping.Common.DataWebScraperStep.Property
 {
     class AttributeToFindElementByType
     {

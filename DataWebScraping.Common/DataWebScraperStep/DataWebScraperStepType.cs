@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace DataWebScraping.Common.DataWebScraperSteps
+namespace DataWebScraping.Common.DataWebScraperStep
 {
     class DataWebScraperStepType
     {

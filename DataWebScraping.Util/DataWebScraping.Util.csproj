@@ -41,6 +41,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ThreadHolderManager.cs" />
+    <Compile Include="ThreadHolderManagerFactory.cs" />
     <Compile Include="WebBrowserFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

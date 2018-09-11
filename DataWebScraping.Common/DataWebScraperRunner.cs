@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Net;
 using System.Windows.Forms;
-using DataWebScraping.Common.DataWebScraperSteps;
-using DataWebScraping.Common.Interfaces;
+using DataWebScraping.Common.Configuration;
+using DataWebScraping.Common.DataWebScraperStep;
 using DataWebScraping.Util;
 
 namespace DataWebScraping.Common
@@ -21,7 +21,6 @@ namespace DataWebScraping.Common
         public void Run(string dataWebScraperConfigurationFilePath, WebBrowser webBrowser)
         {
             IDataWebScraperConfiguration dataWebScraperConfiguration = DataWebScraperConfigurationReader.Read(dataWebScraperConfigurationFilePath);
-            string url = dataWebScraperConfiguration.MainPageUrl;        
 
             foreach (IDataWebScraperStep dataWebScraperStep in dataWebScraperConfiguration.DataWebScraperSteps)
             {

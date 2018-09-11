@@ -1,10 +1,8 @@
-﻿using DataWebScraping.Common.DataWebScraperSteps;
-using DataWebScraping.Common.Interfaces;
+﻿using DataWebScraping.Common.DataWebScraperStep;
 using Newtonsoft.Json;
-using System.Collections.Generic;
 using System.IO;
 
-namespace DataWebScraping.Common
+namespace DataWebScraping.Common.Configuration
 {
     public class DataWebScraperConfigurationReader : IDataWebScraperConfigurationReader
     {
@@ -28,7 +26,7 @@ namespace DataWebScraping.Common
 
             IDataWebScraperConfiguration dataWebScraperConfiguration = new DataWebScraperConfiguration();
 
-            foreach(IDataWebScraperRawStep dataWebScraperRawStep in dataWebScraperRawConfiguration.DataWebScraperRawSteps)
+            foreach(IDataWebScraperStepRaw dataWebScraperRawStep in dataWebScraperRawConfiguration.DataWebScraperRawSteps)
             {
                 IDataWebScraperStep datawebScraperStep = DataWebScraperStepFactory.GetDataWebScraperStep(dataWebScraperRawStep);
                 dataWebScraperConfiguration.AddDataWebScraperStep(datawebScraperStep);

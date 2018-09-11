@@ -1,4 +1,4 @@
-﻿namespace DataWebScraping.Common.Interfaces
+﻿namespace DataWebScraping.Common.Configuration
 {
     public interface IDataWebScraperConfigurationReader
     {

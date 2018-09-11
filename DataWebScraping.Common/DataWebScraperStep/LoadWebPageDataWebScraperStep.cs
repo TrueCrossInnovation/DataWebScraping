@@ -1,25 +1,24 @@
-﻿using DataWebScraping.Common.DataWebScrapingStepProperties;
+﻿using DataWebScraping.Common.DataWebScraperStep.Property;
+using DataWebScraping.Common.DataWebScraperStep.Validator;
+using DataWebScraping.Util;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace DataWebScraping.Common.DataWebScraperSteps
+namespace DataWebScraping.Common.DataWebScraperStep
 {
     class LoadWebPageDataWebScraperStep : IDataWebScraperStep
     {
         public IEnumerable<DataWebScraperStepProperty> DataWebScraperStepProperties { get; }
 
         public DataWebScrapperStepPropertyValidator DataWebScrapperStepPropertyValidator { get; }
-        public DataWebScraperThreadHolderFactory DataWebScraperThreadHolderFactory { get; }
+        public ThreadHolderManagerFactory ThreadHolderManagerFactory { get; }
 
-        public LoadWebPageDataWebScraperStep(IEnumerable<DataWebScraperStepProperty> dataWebScraperStepProperties, DataWebScrapperStepPropertyValidator dataWebScrapperStepPropertyValidator, DataWebScraperThreadHolderFactory dataWebScraperThreadHolderFactory)
+        public LoadWebPageDataWebScraperStep(IEnumerable<DataWebScraperStepProperty> dataWebScraperStepProperties, DataWebScrapperStepPropertyValidator dataWebScrapperStepPropertyValidator, ThreadHolderManagerFactory threadHolderManagerFactory)
         {
             DataWebScraperStepProperties = dataWebScraperStepProperties;
             DataWebScrapperStepPropertyValidator = dataWebScrapperStepPropertyValidator;
-            DataWebScraperThreadHolderFactory = dataWebScraperThreadHolderFactory;
+            ThreadHolderManagerFactory = threadHolderManagerFactory;
         }
 
         public void Execute(WebBrowser webBrowser)
@@ -30,7 +29,7 @@ namespace DataWebScraping.Common.DataWebScraperSteps
             DataWebScrapperStepPropertyValidator.ValidatePropertyValueNotEmpty(urlProperty);
             DataWebScrapperStepPropertyValidator.ValidatePropertyValueNumericNotZero(millisecondsToHoldProperty);
 
-            ThreadHolderManager dataWebScraperThreadHolder = DataWebScraperThreadHolderFactory.GetDataWebScraperThreadHolder(long.Parse(millisecondsToHoldProperty.Value));
+            ThreadHolderManager dataWebScraperThreadHolder = ThreadHolderManagerFactory.GetDataWebScraperThreadHolder(long.Parse(millisecondsToHoldProperty.Value));
             dataWebScraperThreadHolder.SetThreadValue(false);
 
             webBrowser.DocumentCompleted += (object sender, WebBrowserDocumentCompletedEventArgs e) => {

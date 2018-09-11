@@ -1,5 +1,5 @@
 ﻿using DataWebScraping.Common;
-using DataWebScraping.Common.Interfaces;
+using DataWebScraping.Common.Configuration;
 using DataWebScraping.Util;
 
 namespace DataWebScraping.Service

@@ -1,9 +1,8 @@
-﻿using DataWebScraping.Common.DataWebScraperSteps;
-using DataWebScraping.Common.Interfaces;
+﻿using DataWebScraping.Common.DataWebScraperStep;
 using System;
 using System.Collections.Generic;
 
-namespace DataWebScraping.Common
+namespace DataWebScraping.Common.Configuration
 {
     public class DataWebScraperConfigurationFactory : IDataWebScraperStepFactory
     {
@@ -17,7 +16,7 @@ namespace DataWebScraping.Common
             _dataWebScraperSteps.Add(DataWebScraperStepType.LogInStep, typeof(SetTextBoxDataWebScraperStep));
         }        
 
-        public IDataWebScraperStep GetDataWebScraperStep(IDataWebScraperRawStep dataWebScraperRawStep)
+        public IDataWebScraperStep GetDataWebScraperStep(IDataWebScraperStepRaw dataWebScraperRawStep)
         {
             string typeStep = dataWebScraperRawStep.TypeStep;
 

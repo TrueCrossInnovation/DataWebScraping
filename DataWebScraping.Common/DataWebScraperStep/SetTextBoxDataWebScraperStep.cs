@@ -1,11 +1,10 @@
-﻿using DataWebScraping.Common.DataWebScrapingStepProperties;
-using System;
+﻿using DataWebScraping.Common.DataWebScraperStep.Property;
+using DataWebScraping.Common.DataWebScraperStep.Validator;
+using DataWebScraping.Common.WebBrowserUtility;
 using System.Collections.Generic;
-using System.Net;
-using System.Text;
 using System.Windows.Forms;
 
-namespace DataWebScraping.Common.DataWebScraperSteps
+namespace DataWebScraping.Common.DataWebScraperStep
 {
     class SetTextBoxDataWebScraperStep : IDataWebScraperStep
     {

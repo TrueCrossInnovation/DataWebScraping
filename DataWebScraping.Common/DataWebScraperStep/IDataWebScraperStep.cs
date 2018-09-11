@@ -1,9 +1,9 @@
-﻿using DataWebScraping.Common.DataWebScraperSteps;
+﻿using DataWebScraping.Common.DataWebScraperStep.Property;
 using System.Collections.Generic;
 using System.Net;
 using System.Windows.Forms;
 
-namespace DataWebScraping.Common.DataWebScraperSteps
+namespace DataWebScraping.Common.DataWebScraperStep
 {
     public interface IDataWebScraperStep
     {

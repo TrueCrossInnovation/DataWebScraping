@@ -1,8 +1,8 @@
 ﻿using System;
 
-namespace DataWebScraping.Common.DataWebScraperSteps
+namespace DataWebScraping.Util
 {
-    public class DataWebScraperThreadHolderFactory
+    public class ThreadHolderManagerFactory
     {
         public ThreadHolderManager GetDataWebScraperThreadHolder(long millisecondsToHold)
         {

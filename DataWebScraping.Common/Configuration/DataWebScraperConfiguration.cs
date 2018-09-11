@@ -1,8 +1,7 @@
-﻿using System.Collections.Generic;
-using DataWebScraping.Common.DataWebScraperSteps;
-using DataWebScraping.Common.Interfaces;
+﻿using DataWebScraping.Common.DataWebScraperStep;
+using System.Collections.Generic;
 
-namespace DataWebScraping.Common
+namespace DataWebScraping.Common.Configuration
 {
     public class DataWebScraperConfiguration : IDataWebScraperConfiguration
     {

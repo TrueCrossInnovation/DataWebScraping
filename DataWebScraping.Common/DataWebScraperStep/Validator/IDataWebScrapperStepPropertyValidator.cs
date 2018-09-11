@@ -1,6 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using DataWebScraping.Common.DataWebScraperStep.Property;
+using System.Collections.Generic;
 
-namespace DataWebScraping.Common.DataWebScraperSteps
+namespace DataWebScraping.Common.DataWebScraperStep.Validator
 {
     public interface IDataWebScrapperStepPropertyValidator
     {

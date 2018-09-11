@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
 
-namespace DataWebScraping.Common.DataWebScraperSteps
+namespace DataWebScraping.Util
 {
     public class ThreadHolderManager
     {
