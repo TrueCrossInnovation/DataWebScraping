@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace DataWebScraping.Common.DataWebScraperStep
+﻿namespace DataWebScraping.Common.DataWebScraperStep
 {
-    class DataWebScraperStepType
+    public enum DataWebScraperStepType
     {
-        public static string LogInStep => "LogInStep";
+        LogInStep,
+        SetTextBox
     }
 }

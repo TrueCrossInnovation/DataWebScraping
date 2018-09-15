@@ -1,21 +1,30 @@
 ﻿using DataWebScraping.Common.DataWebScraperStep;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace DataWebScraping.Common.Configuration
 {
     public class DataWebScraperConfiguration : IDataWebScraperConfiguration
     {
-        public DataWebScraperConfiguration()
+        private List<IDataWebScraperStep> _dataWebScraperSteps;
+        public IEnumerable<IDataWebScraperStep> DataWebScraperSteps => _dataWebScraperSteps.AsReadOnly();
+
+        public string MainUrl { get; }
+
+        public DataWebScraperConfiguration(string mainUrl)
         {
+            _dataWebScraperSteps = new List<IDataWebScraperStep>();
+            MainUrl = mainUrl;
         }
-
-        public IEnumerable<IDataWebScraperStep> DataWebScraperSteps => throw new System.NotImplementedException();
-
-        public string MainPageUrl => throw new System.NotImplementedException();
-
+        
         public void AddDataWebScraperStep(IDataWebScraperStep datawebScraperStep)
         {
-            throw new System.NotImplementedException();
+            _dataWebScraperSteps.Add(datawebScraperStep);
+        }
+
+        public void RemoveDataWebScraperStep(IDataWebScraperStep datawebScraperStep)
+        {
+            _dataWebScraperSteps.Remove(datawebScraperStep);
         }
     }
 }

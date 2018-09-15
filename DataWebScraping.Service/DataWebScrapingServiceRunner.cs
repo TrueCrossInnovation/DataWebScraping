@@ -1,38 +1,41 @@
 ﻿using DataWebScraping.Common;
 using DataWebScraping.Common.Configuration;
+using DataWebScraping.Common.DataWebScraperStep.Converter;
+using DataWebScraping.Common.DataWebScraperStep.Strategy;
+using DataWebScraping.Common.WebBrowserUtility;
 using DataWebScraping.Util;
 
-namespace DataWebScraping.Service
+namespace DataWebScraping.ServiceRunner
 {
     public class DataWebScrapingServiceRunner : IDataWebScrapingServiceRunner
     {
         private static IDataWebScrapingServiceRunner _instance;
-        public IDataWebScraperRunner DataWebScraperRunner { get; }
-        public WebBrowserFactory WebBrowserFactory { get; }
+        public IDataWebScraperRunner DataWebScraperRunner { get; }        
 
         public static IDataWebScrapingServiceRunner Instance()
         {            
             if (_instance == null)
             {
-                DataWebScraperConfigurationFactory dataWebScraperStepFactory = new DataWebScraperConfigurationFactory();                
-                DataWebScraperConfigurationReader dataWebScraperConfigurationReader = new DataWebScraperConfigurationReader(dataWebScraperStepFactory);
-                IDataWebScraperRunner dataWebScraperRunner = new DataWebScraperRunner(dataWebScraperConfigurationReader, new WebBrowserFactory());
+                DataWebScraperStepStrategyFactory dataWebScraperStepStrategyFactory = new DataWebScraperStepStrategyFactory();                
+                DataWebScraperConfigurationReader dataWebScraperConfigurationReader = new DataWebScraperConfigurationReader();
+                IDataWebScraperToRunnableConverter dataWebScraperToRunnableConverter = new DataWebScraperToRunnableConverter(dataWebScraperStepStrategyFactory);
                 WebBrowserFactory webBrowserFactory = new WebBrowserFactory();
-                _instance = new DataWebScrapingServiceRunner(dataWebScraperRunner, webBrowserFactory);
+                WebBrowserConfigurationRunner dataWebScraperWebBrowserLoader = new WebBrowserConfigurationRunner(dataWebScraperToRunnableConverter, webBrowserFactory);
+                IDataWebScraperRunner dataWebScraperRunner = new DataWebScraperRunner(dataWebScraperConfigurationReader, dataWebScraperWebBrowserLoader);
+                _instance = new DataWebScrapingServiceRunner(dataWebScraperRunner);
             }
 
             return _instance;
         }
 
-        private DataWebScrapingServiceRunner(IDataWebScraperRunner dataWebScraperRunner, WebBrowserFactory webBrowserFactory)
+        private DataWebScrapingServiceRunner(IDataWebScraperRunner dataWebScraperRunner)
         {
-            DataWebScraperRunner = dataWebScraperRunner;
-            WebBrowserFactory = webBrowserFactory;
+            DataWebScraperRunner = dataWebScraperRunner;            
         }
 
         public void Run(string dataWebScraperConfigurationFile)
         {
-            DataWebScraperRunner.Run(dataWebScraperConfigurationFile, WebBrowserFactory.GetWebBrowser());
+            DataWebScraperRunner.Run(dataWebScraperConfigurationFile);
         }
     }
 }

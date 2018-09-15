@@ -2,30 +2,29 @@
 using System.Net;
 using System.Windows.Forms;
 using DataWebScraping.Common.Configuration;
-using DataWebScraping.Common.DataWebScraperStep;
+using DataWebScraping.Common.WebBrowserUtility;
 using DataWebScraping.Util;
 
 namespace DataWebScraping.Common
 {
     public class DataWebScraperRunner : IDataWebScraperRunner
-    {        
-        public IDataWebScraperConfigurationReader DataWebScraperConfigurationReader { get; }
-        public WebBrowserFactory WebBrowserFactory { get; }
+    {         
+        public IDataWebScraperConfigurationReader DataWebScraperConfigurationReader { get; }                
+        public IWebBrowserConfigurationRunner WebBrowserConfigurationRunner { get; }        
 
-        public DataWebScraperRunner(IDataWebScraperConfigurationReader dataWebScraperConfigurationReader, WebBrowserFactory webBrowserFactory)
+        public WebBrowser WebBrowser { get; private set; }
+
+        public DataWebScraperRunner(IDataWebScraperConfigurationReader dataWebScraperConfigurationReader, IWebBrowserConfigurationRunner dataWebScraperWebBrowserLoader)
         {            
-            DataWebScraperConfigurationReader = dataWebScraperConfigurationReader;
-            WebBrowserFactory = webBrowserFactory;
-        }        
-
-        public void Run(string dataWebScraperConfigurationFilePath, WebBrowser webBrowser)
+            DataWebScraperConfigurationReader = dataWebScraperConfigurationReader;                        
+            WebBrowserConfigurationRunner = dataWebScraperWebBrowserLoader;            
+        }
+        
+        public void Run(string dataWebScraperConfigurationFilePath)
         {
             IDataWebScraperConfiguration dataWebScraperConfiguration = DataWebScraperConfigurationReader.Read(dataWebScraperConfigurationFilePath);
-
-            foreach (IDataWebScraperStep dataWebScraperStep in dataWebScraperConfiguration.DataWebScraperSteps)
-            {
-                dataWebScraperStep.Execute(webBrowser);
-            }
-        }
+            WebBrowser = WebBrowserConfigurationRunner.WebBrowser;
+            WebBrowserConfigurationRunner.Run(dataWebScraperConfiguration);            
+        }        
     }
 }

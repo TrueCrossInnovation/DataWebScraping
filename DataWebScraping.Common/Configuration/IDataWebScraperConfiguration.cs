@@ -1,12 +1,13 @@
 ﻿using DataWebScraping.Common.DataWebScraperStep;
+using DataWebScraping.Common.JsonUtility;
+using Newtonsoft.Json;
 using System.Collections.Generic;
 
 namespace DataWebScraping.Common.Configuration
 {
     public interface IDataWebScraperConfiguration
-    {
-        IEnumerable<IDataWebScraperStep> DataWebScraperSteps { get; }        
-
-        void AddDataWebScraperStep(IDataWebScraperStep datawebScraperStep);
+    {        
+        IEnumerable<IDataWebScraperStep> DataWebScraperSteps { get; }
+        string MainUrl { get; }        
     }
 }

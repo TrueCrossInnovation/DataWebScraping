@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Configuration;
 
-namespace DataWebScraping.Service
+namespace DataWebScraping.ServiceRunner
 {
     class Program
     {

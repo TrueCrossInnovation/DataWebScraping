@@ -4,6 +4,7 @@ namespace DataWebScraping.Common
 {
     public interface IDataWebScraperRunner
     {
-        void Run(string dataWebScraperConfigurationFile, WebBrowser webBrowser);
+        WebBrowser WebBrowser { get; }
+        void Run(string dataWebScraperConfigurationFile);
     }
 }

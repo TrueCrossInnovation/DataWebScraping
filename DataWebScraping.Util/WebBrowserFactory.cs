@@ -11,7 +11,7 @@ namespace DataWebScraping.Util
     {
         public WebBrowser GetWebBrowser()
         {
-            throw new NotImplementedException();
+            return new WebBrowser();
         }
     }
 }

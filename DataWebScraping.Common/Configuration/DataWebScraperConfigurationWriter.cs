@@ -8,10 +8,15 @@ using System.Threading.Tasks;
 
 namespace DataWebScraping.Common.Configuration
 {
-    class DataWebScraperConfigurationWriter : IDataWebScraperConfigurationWriter
+    public class DataWebScraperConfigurationWriter : IDataWebScraperConfigurationWriter
     {
-        public void Write(DataWebScraperConfiguration dataWebScraperConfiguration, string pathToWrite, string fileName, bool overrideFile)
+        public void Write(IDataWebScraperConfiguration dataWebScraperConfiguration, string pathToWrite, string fileName, bool overrideFile)
         {
+            if(!Directory.Exists(pathToWrite))
+            {
+                Directory.CreateDirectory(pathToWrite);
+            }
+
             string fullFileNamePath = Path.Combine(pathToWrite, fileName);
 
             if (File.Exists(fullFileNamePath))
@@ -26,7 +31,9 @@ namespace DataWebScraping.Common.Configuration
                 }
             }
 
-            string dataWebScraperConfigurationJson = JsonConvert.SerializeObject(dataWebScraperConfiguration);
+            var dataWebScraperConfigurationWithSetter = new DataWebScraperConfigurationWithSetter(dataWebScraperConfiguration);
+
+            string dataWebScraperConfigurationJson = JsonConvert.SerializeObject(dataWebScraperConfigurationWithSetter);
 
             File.WriteAllText(fullFileNamePath, dataWebScraperConfigurationJson);
         }

@@ -1,4 +1,4 @@
-﻿namespace DataWebScraping.Service
+﻿namespace DataWebScraping.ServiceRunner
 {
     public interface IDataWebScrapingServiceRunner
     {

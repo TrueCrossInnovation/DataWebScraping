@@ -7,7 +7,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataWebScraping.Common", "D
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataWebScraping.Util", "DataWebScraping.Util\DataWebScraping.Util.csproj", "{DE3692D7-B07A-4FC9-A303-2962E9175207}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataWebScraping.Service", "DataWebScraping.Service\DataWebScraping.Service.csproj", "{C680DE61-8BA8-4881-9739-C75212D0866B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataWebScraping.ServiceRunner", "DataWebScraping.Service\DataWebScraping.ServiceRunner.csproj", "{C680DE61-8BA8-4881-9739-C75212D0866B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataWebScraping.ServiceConfigurationCreator", "DataWebScraping.ServiceConfigurationCreator\DataWebScraping.ServiceConfigurationCreator.csproj", "{F893E067-44F5-4CD5-9A21-05C5D6F99F4E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{C680DE61-8BA8-4881-9739-C75212D0866B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C680DE61-8BA8-4881-9739-C75212D0866B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C680DE61-8BA8-4881-9739-C75212D0866B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F893E067-44F5-4CD5-9A21-05C5D6F99F4E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F893E067-44F5-4CD5-9A21-05C5D6F99F4E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F893E067-44F5-4CD5-9A21-05C5D6F99F4E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F893E067-44F5-4CD5-9A21-05C5D6F99F4E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

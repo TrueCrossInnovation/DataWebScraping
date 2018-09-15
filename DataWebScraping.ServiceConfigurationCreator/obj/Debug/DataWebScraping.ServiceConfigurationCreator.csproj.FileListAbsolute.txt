@@ -1,0 +1,13 @@
+C:\Users\Fam Ordonez Enriquez\Source\Repos\DataWebScraping\DataWebScraping.ServiceConfigurationCreator\bin\Debug\DataWebScraping.ServiceConfigurationCreator.exe.config
+C:\Users\Fam Ordonez Enriquez\Source\Repos\DataWebScraping\DataWebScraping.ServiceConfigurationCreator\bin\Debug\DataWebScraping.ServiceConfigurationCreator.exe
+C:\Users\Fam Ordonez Enriquez\Source\Repos\DataWebScraping\DataWebScraping.ServiceConfigurationCreator\bin\Debug\DataWebScraping.ServiceConfigurationCreator.pdb
+C:\Users\Fam Ordonez Enriquez\Source\Repos\DataWebScraping\DataWebScraping.ServiceConfigurationCreator\obj\Debug\DataWebScraping.ServiceConfigurationCreator.csprojResolveAssemblyReference.cache
+C:\Users\Fam Ordonez Enriquez\Source\Repos\DataWebScraping\DataWebScraping.ServiceConfigurationCreator\obj\Debug\DataWebScraping.ServiceConfigurationCreator.csproj.CoreCompileInputs.cache
+C:\Users\Fam Ordonez Enriquez\Source\Repos\DataWebScraping\DataWebScraping.ServiceConfigurationCreator\obj\Debug\DataWebScraping.ServiceConfigurationCreator.exe
+C:\Users\Fam Ordonez Enriquez\Source\Repos\DataWebScraping\DataWebScraping.ServiceConfigurationCreator\obj\Debug\DataWebScraping.ServiceConfigurationCreator.pdb
+C:\Users\Fam Ordonez Enriquez\Source\Repos\DataWebScraping\DataWebScraping.ServiceConfigurationCreator\bin\Debug\DataWebScraping.Common.dll
+C:\Users\Fam Ordonez Enriquez\Source\Repos\DataWebScraping\DataWebScraping.ServiceConfigurationCreator\bin\Debug\DataWebScraping.Util.dll
+C:\Users\Fam Ordonez Enriquez\Source\Repos\DataWebScraping\DataWebScraping.ServiceConfigurationCreator\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Fam Ordonez Enriquez\Source\Repos\DataWebScraping\DataWebScraping.ServiceConfigurationCreator\bin\Debug\DataWebScraping.Common.pdb
+C:\Users\Fam Ordonez Enriquez\Source\Repos\DataWebScraping\DataWebScraping.ServiceConfigurationCreator\bin\Debug\DataWebScraping.Util.pdb
+C:\Users\Fam Ordonez Enriquez\Source\Repos\DataWebScraping\DataWebScraping.ServiceConfigurationCreator\bin\Debug\Newtonsoft.Json.xml

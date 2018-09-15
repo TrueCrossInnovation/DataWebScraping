@@ -2,6 +2,6 @@
 {
     public interface IDataWebScraperConfigurationWriter
     {
-        void Write(DataWebScraperConfiguration dataWebScraperConfiguration, string pathToWrite, string fileName, bool overrideFile);
+        void Write(IDataWebScraperConfiguration dataWebScraperConfiguration, string pathToWrite, string fileName, bool overrideFile);
     }
 }

@@ -2,8 +2,14 @@
 {
     public class DataWebScraperStepProperty : IDataWebScraperStepProperty
     {
-        public string Key { get; set; }
+        public string Key { get; }
 
-        public string Value { get; set; }
+        public string Value { get; }
+
+        public DataWebScraperStepProperty(string key, string value)
+        {
+            Key = key;
+            Value = value;
+        }        
     }
 }

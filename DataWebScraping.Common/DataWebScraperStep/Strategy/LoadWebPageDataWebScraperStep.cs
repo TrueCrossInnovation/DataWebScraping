@@ -5,26 +5,24 @@ using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
 
-namespace DataWebScraping.Common.DataWebScraperStep
+namespace DataWebScraping.Common.DataWebScraperStep.Strategy
 {
-    class LoadWebPageDataWebScraperStep : IDataWebScraperStep
-    {
-        public IEnumerable<DataWebScraperStepProperty> DataWebScraperStepProperties { get; }
+    class LoadWebPageDataWebScraperStepStrategy : IDataWebScraperStepStrategy
+    {        
 
         public DataWebScrapperStepPropertyValidator DataWebScrapperStepPropertyValidator { get; }
-        public ThreadHolderManagerFactory ThreadHolderManagerFactory { get; }
+        public ThreadHolderManagerFactory ThreadHolderManagerFactory { get; }        
 
-        public LoadWebPageDataWebScraperStep(IEnumerable<DataWebScraperStepProperty> dataWebScraperStepProperties, DataWebScrapperStepPropertyValidator dataWebScrapperStepPropertyValidator, ThreadHolderManagerFactory threadHolderManagerFactory)
-        {
-            DataWebScraperStepProperties = dataWebScraperStepProperties;
+        public LoadWebPageDataWebScraperStepStrategy(DataWebScrapperStepPropertyValidator dataWebScrapperStepPropertyValidator, ThreadHolderManagerFactory threadHolderManagerFactory)
+        {            
             DataWebScrapperStepPropertyValidator = dataWebScrapperStepPropertyValidator;
             ThreadHolderManagerFactory = threadHolderManagerFactory;
         }
 
-        public void Execute(WebBrowser webBrowser)
+        public void Execute(WebBrowser webBrowser, IEnumerable<IDataWebScraperStepProperty> dataWebScraperStepProperties)
         {
-            IDataWebScraperStepProperty urlProperty = DataWebScrapperStepPropertyValidator.GetFirstProperty(DataWebScraperStepPropertyType.Url, DataWebScraperStepProperties);
-            IDataWebScraperStepProperty millisecondsToHoldProperty = DataWebScrapperStepPropertyValidator.GetFirstProperty(DataWebScraperStepPropertyType.MillisecondsToHold, DataWebScraperStepProperties);
+            IDataWebScraperStepProperty urlProperty = DataWebScrapperStepPropertyValidator.GetFirstProperty(DataWebScraperStepPropertyType.Url, dataWebScraperStepProperties);
+            IDataWebScraperStepProperty millisecondsToHoldProperty = DataWebScrapperStepPropertyValidator.GetFirstProperty(DataWebScraperStepPropertyType.MillisecondsToHold, dataWebScraperStepProperties);
 
             DataWebScrapperStepPropertyValidator.ValidatePropertyValueNotEmpty(urlProperty);
             DataWebScrapperStepPropertyValidator.ValidatePropertyValueNumericNotZero(millisecondsToHoldProperty);

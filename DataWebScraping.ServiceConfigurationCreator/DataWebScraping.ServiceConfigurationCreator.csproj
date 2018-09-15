@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{C680DE61-8BA8-4881-9739-C75212D0866B}</ProjectGuid>
+    <ProjectGuid>{F893E067-44F5-4CD5-9A21-05C5D6F99F4E}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>DataWebScraping.Service</RootNamespace>
-    <AssemblyName>DataWebScraping.Service</AssemblyName>
+    <RootNamespace>DataWebScraping.ServiceConfigurationCreator</RootNamespace>
+    <AssemblyName>DataWebScraping.ServiceConfigurationCreator</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -33,9 +33,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
-    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -44,8 +42,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DataWebScrapingServiceRunner.cs" />
-    <Compile Include="IDataWebScrapingServiceRunner.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -56,10 +52,6 @@
     <ProjectReference Include="..\DataWebScraping.Common\DataWebScraping.Common.csproj">
       <Project>{F0BD4F41-BA5A-4FA8-B86B-FF834206F738}</Project>
       <Name>DataWebScraping.Common</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\DataWebScraping.Util\DataWebScraping.Util.csproj">
-      <Project>{DE3692D7-B07A-4FC9-A303-2962E9175207}</Project>
-      <Name>DataWebScraping.Util</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
