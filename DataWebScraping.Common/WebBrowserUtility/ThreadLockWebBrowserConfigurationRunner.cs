@@ -43,20 +43,20 @@ namespace DataWebScraping.Common.WebBrowserUtility
                 WebBrowser = WebBrowserFactory.GetWebBrowser();
                 DataWebScraperSelfIterator = new DataWebScraperSelfIterator(new DataWebScraperToRunnableConverter(new DataWebScraperStep.Strategy.DataWebScraperStepStrategyFactory()), WebBrowser);
                 DataWebScraperSelfIterator.SetElements(DataWebScraperConfiguration.DataWebScraperSteps.OrderBy(s => s.StepSequence));
-                //DataWebScraperSelfIterator.Iterate();
-                //DataWebScraperSelfIterator.DataWebScraperSelfIteratorWasComplete += DataWebScraperSelfIterator_DataWebScraperSelfIteratorWasComplete;
-                Application.Run();
+                DataWebScraperSelfIterator.Iterate();
+                DataWebScraperSelfIterator.DataWebScraperSelfIteratorWasComplete += DataWebScraperSelfIterator_DataWebScraperSelfIteratorWasComplete;
+                Application.Run();                
             });
             MainThread.SetApartmentState(ApartmentState.STA);
             MainThread.Start();
 
-            //while(!_dataWebScraperSelfIteratorWasCompleted)
-            //{
-            //Thread.Sleep(1000);
-            //}
-
-            Thread.Sleep(5000);
+            while (!_dataWebScraperSelfIteratorWasCompleted)
+            {
+                Thread.Sleep(1000);
+            }
+            
             KillMainThread();
+            WebBrowserConfigurationRunWascompleted?.Invoke(this, null);
         }
 
         private void DataWebScraperSelfIterator_DataWebScraperSelfIteratorWasComplete(object sender, EventArgs e)
@@ -67,12 +67,13 @@ namespace DataWebScraping.Common.WebBrowserUtility
         [SecurityPermissionAttribute(SecurityAction.Demand, ControlThread = true)]
         private void KillMainThread()
         {
-            DisposeWebBrowser();
+            DisposeWebBrowser();            
 
             if (MainThread.IsAlive)
             {
                 MainThread.Abort();
             }
+            Application.Exit();
         }
 
         private void DisposeWebBrowser()

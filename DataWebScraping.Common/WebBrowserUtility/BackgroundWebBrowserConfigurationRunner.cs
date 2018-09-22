@@ -52,6 +52,7 @@ namespace DataWebScraping.Common.WebBrowserUtility
         private void DataWebScraperSelfIterator_DataWebScraperSelfIteratorWasComplete(object sender, EventArgs e)
         {
             KillMainThread();
+            WebBrowserConfigurationRunWascompleted?.Invoke(this, null);
         }
 
         [SecurityPermissionAttribute(SecurityAction.Demand, ControlThread = true)]
@@ -63,6 +64,7 @@ namespace DataWebScraping.Common.WebBrowserUtility
             {
                 MainThread.Abort();
             }
+            Application.Exit();            
         }
 
         private void DisposeWebBrowser()
