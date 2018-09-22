@@ -20,7 +20,7 @@ namespace DataWebScraping.ServiceRunner
                 DataWebScraperConfigurationReader dataWebScraperConfigurationReader = new DataWebScraperConfigurationReader();
                 IDataWebScraperToRunnableConverter dataWebScraperToRunnableConverter = new DataWebScraperToRunnableConverter(dataWebScraperStepStrategyFactory);
                 WebBrowserFactory webBrowserFactory = new WebBrowserFactory();
-                WebBrowserConfigurationRunner dataWebScraperWebBrowserLoader = new WebBrowserConfigurationRunner(dataWebScraperToRunnableConverter, webBrowserFactory);
+                ThreadLockWebBrowserConfigurationRunner dataWebScraperWebBrowserLoader = new ThreadLockWebBrowserConfigurationRunner(dataWebScraperToRunnableConverter, webBrowserFactory);
                 IDataWebScraperRunner dataWebScraperRunner = new DataWebScraperRunner(dataWebScraperConfigurationReader, dataWebScraperWebBrowserLoader);
                 _instance = new DataWebScrapingServiceRunner(dataWebScraperRunner);
             }

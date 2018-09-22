@@ -12,32 +12,58 @@ namespace DataWebScraping.Common.WebBrowserUtility
         {
             if(attributeToFindElementByProperties.Count() <= 0)
             {
-                throw new NullReferenceException("The attrubutes to find elements could not be empty");
+                throw new NullReferenceException("The attributes to find elements could not be empty");
             }
 
             HtmlElement HtmlElementItemResult = null;
 
-            foreach (HtmlElement HtmlElementItem in webBrowser.Document.Window.Frames[0].Document.Body.All)
-            {                
+            try
+            {
 
-                foreach(IDataWebScraperStepProperty dataWebScraperStepProperty in attributeToFindElementByProperties)
+                HtmlWindow htmlWindow = webBrowser.Document.Window;
+                HtmlElementCollection all = htmlWindow.Document.Body.All;
+
+                foreach (HtmlElement HtmlElementItem in all)
                 {
-                    if (HtmlElementItem.GetAttribute(dataWebScraperStepProperty.Key) != dataWebScraperStepProperty.Value)
+                    bool isFound = FindElement(HtmlElementItem, attributeToFindElementByProperties);                    
+
+                    if (isFound)
                     {
+                        HtmlElementItemResult = HtmlElementItem;
                         break;
-                    }
+                    }                    
                 }
 
-                HtmlElementItemResult = HtmlElementItem;
-                break;
-            }
+                if (HtmlElementItemResult == null)
+                {
+                    throw new MissingMemberException("There is no element that match with the properties.");
+                }
 
-            if(HtmlElementItemResult == null)
+                return HtmlElementItemResult;
+            }catch(Exception e)
             {
-                throw new MissingMemberException("There is no element that match with the properties.");
+                string s = e.Message;
             }
 
-            return HtmlElementItemResult;
+            return null;
+
+        }
+
+        private bool FindElement(HtmlElement htmlElementItem, IEnumerable<IDataWebScraperStepProperty> attributeToFindElementByProperties)
+        {
+            bool isFound = true;            
+
+            foreach (IDataWebScraperStepProperty dataWebScraperStepProperty in attributeToFindElementByProperties)
+            {
+                string htmlAttribute = htmlElementItem.GetAttribute(dataWebScraperStepProperty.Key);
+                if (htmlAttribute?.ToUpper() != dataWebScraperStepProperty.Value.ToUpper())
+                {
+                    isFound = false;
+                    break;
+                }
+            }
+
+            return isFound;
         }
     }
 }

@@ -7,20 +7,24 @@ using System.Threading.Tasks;
 
 namespace DataWebScraping.Common.JsonUtility
 {
-    public class ConcreteConverter<T> : JsonConverter
+    public class ConcreteConverter<IInterface, TConcrete> : JsonConverter where TConcrete : IInterface
     {
-        public override bool CanConvert(Type objectType) => true;
+        public override bool CanConvert(Type objectType)
+        {
+            return typeof(IInterface) == objectType;
+        }
 
         public override object ReadJson(JsonReader reader,
          Type objectType, object existingValue, JsonSerializer serializer)
         {
-            return serializer.Deserialize<T>(reader);
+            return serializer.Deserialize<TConcrete>(reader);
         }
 
-        public override void WriteJson(JsonWriter writer,
-            object value, JsonSerializer serializer)
+        public override bool CanWrite { get { return false; } }
+
+        public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
         {
-            serializer.Serialize(writer, value);
+            throw new NotImplementedException();
         }
     }
 }

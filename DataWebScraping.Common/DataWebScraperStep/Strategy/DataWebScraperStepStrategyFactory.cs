@@ -14,16 +14,16 @@ namespace DataWebScraping.Common.DataWebScraperStep.Strategy
         public DataWebScraperStepStrategyFactory()
         {
             _dataWebScraperSteps = new Dictionary<DataWebScraperStepType, Type>();            
-            _dataWebScraperSteps.Add(DataWebScraperStepType.LogInStep, typeof(SetTextBoxDataWebScraperStepStrategy));
+            _dataWebScraperSteps.Add(DataWebScraperStepType.SetTextBox, typeof(SetAttributeOnElementDataWebScraperStepStrategy));
+            _dataWebScraperSteps.Add(DataWebScraperStepType.LoadWebPage, typeof(LoadWebPageDataWebScraperStepStrategy));
         }                
 
         public IDataWebScraperStepStrategy GetDataWebScraperStepStrategy(DataWebScraperStepType dataWebScraperStepType)
         {
-            Type type = null;
-            object args = new object();
+            Type type = null;            
             if (_dataWebScraperSteps.TryGetValue(dataWebScraperStepType, out type))
             {
-                return (IDataWebScraperStepStrategy)Activator.CreateInstance(type, args);
+                return (IDataWebScraperStepStrategy)Activator.CreateInstance(type);
             }
 
             throw new NotImplementedException($"The factory didn't find a type {dataWebScraperStepType} registered to be created.");

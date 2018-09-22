@@ -8,25 +8,25 @@ namespace DataWebScraping.Common.DataWebScraperStep.Validator
     public class DataWebScrapperStepPropertyValidator : IDataWebScrapperStepPropertyValidator
     {                        
 
-        public IDataWebScraperStepProperty GetFirstProperty(string keyProperty, IEnumerable<IDataWebScraperStepProperty> dataWebScraperStepProperties)
+        public IDataWebScraperStepProperty GetFirstProperty(DataWebScraperStepPropertyType dataWebScraperStepPropertyType, IEnumerable<IDataWebScraperStepProperty> dataWebScraperStepProperties)
         {
-            IDataWebScraperStepProperty dataWebScraperStepProperty = dataWebScraperStepProperties.FirstOrDefault(p => p.Key == keyProperty);
+            IDataWebScraperStepProperty dataWebScraperStepProperty = dataWebScraperStepProperties.FirstOrDefault(p => p.DataWebScraperStepPropertyType == dataWebScraperStepPropertyType);
 
             if (dataWebScraperStepProperty == null)
             {
-                throw new NullReferenceException($"There is no property with key '{keyProperty}'.");
+                throw new NullReferenceException($"There is no property for type '{dataWebScraperStepPropertyType.ToString()}'.");
             }
 
             return dataWebScraperStepProperty;
         }
 
-        public IEnumerable<IDataWebScraperStepProperty> GetAllProperties(string keyProperty, IEnumerable<IDataWebScraperStepProperty> dataWebScraperStepProperties)
+        public IEnumerable<IDataWebScraperStepProperty> GetAllProperties(DataWebScraperStepPropertyType dataWebScraperStepPropertyType, IEnumerable<IDataWebScraperStepProperty> dataWebScraperStepProperties)
         {
-            IEnumerable<IDataWebScraperStepProperty> dataWebScraperStepPropertiesResult = dataWebScraperStepProperties.Where(p => p.Key == keyProperty);
+            IEnumerable<IDataWebScraperStepProperty> dataWebScraperStepPropertiesResult = dataWebScraperStepProperties.Where(p => p.DataWebScraperStepPropertyType == dataWebScraperStepPropertyType);
 
             if (dataWebScraperStepPropertiesResult == null || dataWebScraperStepPropertiesResult.Count() == 0)
             {
-                throw new NullReferenceException($"There is no properties with key '{keyProperty}'.");
+                throw new NullReferenceException($"There is no properties for type '{dataWebScraperStepPropertyType.ToString()}'.");
             }
 
             return dataWebScraperStepPropertiesResult;

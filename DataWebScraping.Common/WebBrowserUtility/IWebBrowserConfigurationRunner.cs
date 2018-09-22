@@ -1,11 +1,12 @@
-﻿using System.Windows.Forms;
+﻿using System;
+using System.Windows.Forms;
 using DataWebScraping.Common.Configuration;
 
 namespace DataWebScraping.Common.WebBrowserUtility
 {
     public interface IWebBrowserConfigurationRunner
     {
-        WebBrowser WebBrowser { get; }        
+        event EventHandler WebBrowserConfigurationRunWascompleted;
         void Run(IDataWebScraperConfiguration dataWebScraperConfiguration);
     }
 }

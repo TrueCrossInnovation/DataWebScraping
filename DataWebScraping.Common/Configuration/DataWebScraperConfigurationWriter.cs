@@ -30,10 +30,8 @@ namespace DataWebScraping.Common.Configuration
                     throw new Exception($"The file {fullFileNamePath} already exist and is not marked as override.");
                 }
             }
-
-            var dataWebScraperConfigurationWithSetter = new DataWebScraperConfigurationWithSetter(dataWebScraperConfiguration);
-
-            string dataWebScraperConfigurationJson = JsonConvert.SerializeObject(dataWebScraperConfigurationWithSetter);
+            
+            string dataWebScraperConfigurationJson = JsonConvert.SerializeObject(dataWebScraperConfiguration);
 
             File.WriteAllText(fullFileNamePath, dataWebScraperConfigurationJson);
         }

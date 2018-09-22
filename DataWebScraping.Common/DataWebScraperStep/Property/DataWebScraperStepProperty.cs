@@ -6,8 +6,11 @@
 
         public string Value { get; }
 
-        public DataWebScraperStepProperty(string key, string value)
+        public DataWebScraperStepPropertyType DataWebScraperStepPropertyType { get; }
+
+        public DataWebScraperStepProperty(DataWebScraperStepPropertyType dataWebScraperStepPropertyType , string key, string value)
         {
+            DataWebScraperStepPropertyType = dataWebScraperStepPropertyType;
             Key = key;
             Value = value;
         }        

@@ -11,13 +11,22 @@ namespace DataWebScraping.Common.DataWebScraperStep.Strategy
     {        
 
         public DataWebScrapperStepPropertyValidator DataWebScrapperStepPropertyValidator { get; }
-        public ThreadHolderManagerFactory ThreadHolderManagerFactory { get; }        
+        public ThreadHolderManagerFactory ThreadHolderManagerFactory { get; }
+        public ThreadHolderManager DataWebScraperThreadHolder { get; private set; }
 
-        public LoadWebPageDataWebScraperStepStrategy(DataWebScrapperStepPropertyValidator dataWebScrapperStepPropertyValidator, ThreadHolderManagerFactory threadHolderManagerFactory)
+        public LoadWebPageDataWebScraperStepStrategy()
+        {
+            DataWebScrapperStepPropertyValidator = new DataWebScrapperStepPropertyValidator();
+            ThreadHolderManagerFactory = new ThreadHolderManagerFactory();
+        }
+
+        internal LoadWebPageDataWebScraperStepStrategy(DataWebScrapperStepPropertyValidator dataWebScrapperStepPropertyValidator, ThreadHolderManagerFactory threadHolderManagerFactory)
         {            
             DataWebScrapperStepPropertyValidator = dataWebScrapperStepPropertyValidator;
             ThreadHolderManagerFactory = threadHolderManagerFactory;
         }
+
+        public event EventHandler StepWasCompleted;
 
         public void Execute(WebBrowser webBrowser, IEnumerable<IDataWebScraperStepProperty> dataWebScraperStepProperties)
         {
@@ -27,18 +36,31 @@ namespace DataWebScraping.Common.DataWebScraperStep.Strategy
             DataWebScrapperStepPropertyValidator.ValidatePropertyValueNotEmpty(urlProperty);
             DataWebScrapperStepPropertyValidator.ValidatePropertyValueNumericNotZero(millisecondsToHoldProperty);
 
-            ThreadHolderManager dataWebScraperThreadHolder = ThreadHolderManagerFactory.GetDataWebScraperThreadHolder(long.Parse(millisecondsToHoldProperty.Value));
-            dataWebScraperThreadHolder.SetThreadValue(false);
+            DataWebScraperThreadHolder = ThreadHolderManagerFactory.GetDataWebScraperThreadHolder(long.Parse(millisecondsToHoldProperty.Value));
+            DataWebScraperThreadHolder.SetThreadValue(false);
+            try
+            {
+                webBrowser.DocumentCompleted += WebBrowser_DocumentCompleted;
+                webBrowser.Navigate(urlProperty.Value);
+                //DataWebScraperThreadHolder.WaitUntilValue(true);                
+            }catch(Exception e)
+            {
+                string r = e.Message;
+            }            
 
-            webBrowser.DocumentCompleted += (object sender, WebBrowserDocumentCompletedEventArgs e) => {
-                if (webBrowser.Document != null && webBrowser.ReadyState == WebBrowserReadyState.Complete)
-                {
-                    dataWebScraperThreadHolder.SetThreadValue(true);
-                }
-            };
+        }
 
-            webBrowser.Navigate(urlProperty.Value);
-            dataWebScraperThreadHolder.WaitUntilValue(true);
-        }        
+        private void WebBrowser_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
+        {
+            WebBrowser webBrowser = sender as WebBrowser;
+            webBrowser.DocumentCompleted -= WebBrowser_DocumentCompleted;
+
+            if (webBrowser.Document != null && webBrowser.ReadyState == WebBrowserReadyState.Complete)
+            {
+                DataWebScraperThreadHolder.SetThreadValue(true);
+            }
+
+            StepWasCompleted?.Invoke(null, null);
+        }
     }
 }

@@ -6,28 +6,11 @@ using System.Linq;
 
 namespace DataWebScraping.Common.Configuration
 {
-    internal class DataWebScraperConfigurationWithSetter : IDataWebScraperConfigurationWithSetter
+    internal class DataWebScraperConfigurationWithSetter : IDataWebScraperConfiguration
     {
-        public string MainUrl { get; set; }
-        [JsonConverter(typeof(ConcreteConverter<DataWebScraperStepWithSetter>))]
-        public IEnumerable<IDataWebScraperStepWithSetter> DataWebScraperSteps { get; set; }
-        IEnumerable<IDataWebScraperStep> IDataWebScraperConfiguration.DataWebScraperSteps => DataWebScraperSteps;
-
-        public DataWebScraperConfigurationWithSetter()
-        { }
-
-        public DataWebScraperConfigurationWithSetter(IDataWebScraperConfiguration dataWebScraperConfiguration)
-        {
-            MainUrl = dataWebScraperConfiguration.MainUrl;
-            List<DataWebScraperStepWithSetter>  dataWebScraperSteps = new List<DataWebScraperStepWithSetter>();
-            foreach(IDataWebScraperStep dataWebScraperStep in dataWebScraperConfiguration.DataWebScraperSteps)
-            {
-                dataWebScraperSteps.Add(new DataWebScraperStepWithSetter(dataWebScraperStep));
-            }
-
-            DataWebScraperSteps = dataWebScraperSteps;
-
-
-        }        
+        public string MainUrl { get; set; }        
+        [JsonProperty(nameof(IDataWebScraperConfiguration.DataWebScraperSteps), 
+            ItemConverterType = typeof(ConcreteConverter<IDataWebScraperStep, DataWebScraperStepWithSetter>))]        
+        public IEnumerable<IDataWebScraperStep> DataWebScraperSteps { get; set; }
     }
 }

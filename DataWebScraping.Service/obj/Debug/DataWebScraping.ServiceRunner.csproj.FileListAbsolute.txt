@@ -1,7 +1,3 @@
-C:\Users\Fam Ordonez Enriquez\Source\Repos\DataWebScraping\DataWebScraping.Service\obj\Debug\DataWebScraping.ServiceRunner.csprojResolveAssemblyReference.cache
-C:\Users\Fam Ordonez Enriquez\Source\Repos\DataWebScraping\DataWebScraping.Service\obj\Debug\DataWebScraping.ServiceRunner.csproj.CoreCompileInputs.cache
-C:\Users\Fam Ordonez Enriquez\Source\Repos\DataWebScraping\DataWebScraping.Service\obj\Debug\DataWebScraping.ServiceRunner.exe
-C:\Users\Fam Ordonez Enriquez\Source\Repos\DataWebScraping\DataWebScraping.Service\obj\Debug\DataWebScraping.ServiceRunner.pdb
 C:\Users\Fam Ordonez Enriquez\Source\Repos\DataWebScraping\DataWebScraping.Service\bin\Debug\DataWebScraping.ServiceRunner.exe.config
 C:\Users\Fam Ordonez Enriquez\Source\Repos\DataWebScraping\DataWebScraping.Service\bin\Debug\DataWebScraping.ServiceRunner.exe
 C:\Users\Fam Ordonez Enriquez\Source\Repos\DataWebScraping\DataWebScraping.Service\bin\Debug\DataWebScraping.ServiceRunner.pdb
@@ -11,3 +7,7 @@ C:\Users\Fam Ordonez Enriquez\Source\Repos\DataWebScraping\DataWebScraping.Servi
 C:\Users\Fam Ordonez Enriquez\Source\Repos\DataWebScraping\DataWebScraping.Service\bin\Debug\DataWebScraping.Common.pdb
 C:\Users\Fam Ordonez Enriquez\Source\Repos\DataWebScraping\DataWebScraping.Service\bin\Debug\DataWebScraping.Util.pdb
 C:\Users\Fam Ordonez Enriquez\Source\Repos\DataWebScraping\DataWebScraping.Service\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Fam Ordonez Enriquez\Source\Repos\DataWebScraping\DataWebScraping.Service\obj\Debug\DataWebScraping.ServiceRunner.csprojResolveAssemblyReference.cache
+C:\Users\Fam Ordonez Enriquez\Source\Repos\DataWebScraping\DataWebScraping.Service\obj\Debug\DataWebScraping.ServiceRunner.csproj.CoreCompileInputs.cache
+C:\Users\Fam Ordonez Enriquez\Source\Repos\DataWebScraping\DataWebScraping.Service\obj\Debug\DataWebScraping.ServiceRunner.exe
+C:\Users\Fam Ordonez Enriquez\Source\Repos\DataWebScraping\DataWebScraping.Service\obj\Debug\DataWebScraping.ServiceRunner.pdb

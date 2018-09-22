@@ -1,18 +1,11 @@
 ﻿namespace DataWebScraping.Common.DataWebScraperStep.Property
 {
-    internal class DataWebScraperStepPropertyWithSetter : IDataWebScraperStepPropertyWithSetter
+    internal class DataWebScraperStepPropertyWithSetter : IDataWebScraperStepProperty
     {
         public string Key { get; set; }
 
         public string Value { get; set; }
-        
-        public DataWebScraperStepPropertyWithSetter()
-        { }
 
-        public DataWebScraperStepPropertyWithSetter(IDataWebScraperStepProperty dataWebScraperStepProperty)
-        {
-            Key = dataWebScraperStepProperty.Key;
-            Value = dataWebScraperStepProperty.Value;
-        }
+        public DataWebScraperStepPropertyType DataWebScraperStepPropertyType { get; set; }
     }
 }

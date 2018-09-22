@@ -8,13 +8,11 @@ namespace DataWebScraping.Common.Configuration
     {
         private List<IDataWebScraperStep> _dataWebScraperSteps;
         public IEnumerable<IDataWebScraperStep> DataWebScraperSteps => _dataWebScraperSteps.AsReadOnly();
+        
 
-        public string MainUrl { get; }
-
-        public DataWebScraperConfiguration(string mainUrl)
+        public DataWebScraperConfiguration()
         {
-            _dataWebScraperSteps = new List<IDataWebScraperStep>();
-            MainUrl = mainUrl;
+            _dataWebScraperSteps = new List<IDataWebScraperStep>();        
         }
         
         public void AddDataWebScraperStep(IDataWebScraperStep datawebScraperStep)

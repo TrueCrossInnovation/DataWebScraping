@@ -7,7 +7,6 @@ namespace DataWebScraping.Common.Configuration
 {
     public interface IDataWebScraperConfiguration
     {        
-        IEnumerable<IDataWebScraperStep> DataWebScraperSteps { get; }
-        string MainUrl { get; }        
+        IEnumerable<IDataWebScraperStep> DataWebScraperSteps { get; }        
     }
 }

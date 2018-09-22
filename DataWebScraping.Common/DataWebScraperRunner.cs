@@ -10,9 +10,7 @@ namespace DataWebScraping.Common
     public class DataWebScraperRunner : IDataWebScraperRunner
     {         
         public IDataWebScraperConfigurationReader DataWebScraperConfigurationReader { get; }                
-        public IWebBrowserConfigurationRunner WebBrowserConfigurationRunner { get; }        
-
-        public WebBrowser WebBrowser { get; private set; }
+        public IWebBrowserConfigurationRunner WebBrowserConfigurationRunner { get; }                
 
         public DataWebScraperRunner(IDataWebScraperConfigurationReader dataWebScraperConfigurationReader, IWebBrowserConfigurationRunner dataWebScraperWebBrowserLoader)
         {            
@@ -23,8 +21,7 @@ namespace DataWebScraping.Common
         public void Run(string dataWebScraperConfigurationFilePath)
         {
             IDataWebScraperConfiguration dataWebScraperConfiguration = DataWebScraperConfigurationReader.Read(dataWebScraperConfigurationFilePath);
-            WebBrowser = WebBrowserConfigurationRunner.WebBrowser;
-            WebBrowserConfigurationRunner.Run(dataWebScraperConfiguration);            
+            WebBrowserConfigurationRunner.Run(dataWebScraperConfiguration);
         }        
     }
 }

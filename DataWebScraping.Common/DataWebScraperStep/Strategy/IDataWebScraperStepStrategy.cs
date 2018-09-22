@@ -10,6 +10,7 @@ namespace DataWebScraping.Common.DataWebScraperStep.Strategy
 {
     public interface IDataWebScraperStepStrategy
     {
+        event EventHandler StepWasCompleted;
         void Execute(WebBrowser webBrowser, IEnumerable<IDataWebScraperStepProperty> dataWebScraperStepProperties);
     }
 }

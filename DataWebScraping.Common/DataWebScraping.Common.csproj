@@ -47,16 +47,13 @@
     <Compile Include="Configuration\DataWebScraperConfigurationWithSetter.cs" />
     <Compile Include="Configuration\DataWebScraperConfigurationRunnable.cs" />
     <Compile Include="Configuration\DataWebScraperConfiguration.cs" />
-    <Compile Include="Configuration\IDataWebScraperConfigurationWithSetter.cs" />
     <Compile Include="Configuration\IDataWebScraperConfigurationRunnable.cs" />
     <Compile Include="DataWebScraperStep\DataWebScraperStepRunnable.cs" />
     <Compile Include="DataWebScraperStep\Converter\DataWebScraperToRunnableConverter.cs" />
     <Compile Include="DataWebScraperStep\Converter\IDataWebScraperToRunnableConverter.cs" />
     <Compile Include="DataWebScraperStep\DataWebScraperStepType.cs" />
     <Compile Include="DataWebScraperStep\DataWebScraperStepWithSetter.cs" />
-    <Compile Include="DataWebScraperStep\IDataWebScraperStepWithSetter.cs" />
     <Compile Include="DataWebScraperStep\Property\DataWebScraperStepPropertyWithSetter.cs" />
-    <Compile Include="DataWebScraperStep\Property\IDataWebScraperStepPropertyWithSetter.cs" />
     <Compile Include="DataWebScraperStep\Strategy\DataWebScraperStepStrategyFactory.cs" />
     <Compile Include="Configuration\DataWebScraperConfigurationReader.cs" />
     <Compile Include="Configuration\DataWebScraperConfigurationWriter.cs" />
@@ -65,7 +62,12 @@
     <Compile Include="DataWebScraperStep\GenericDataWebScraperStep.cs" />
     <Compile Include="DataWebScraperStep\IDataWebScraperStepRunnable.cs" />
     <Compile Include="DataWebScraperStep\Strategy\IDataWebScraperStepStrategy.cs" />
+    <Compile Include="IteratorUtility\Iterator.cs" />
+    <Compile Include="IteratorUtility\WebBroserInWebScraperStepRunnabelArgument.cs" />
     <Compile Include="JsonUtility\ConcreteConverter.cs" />
+    <Compile Include="IteratorUtility\IDataWebScraperSelfIterator.cs" />
+    <Compile Include="WebBrowserUtility\ThreadLockWebBrowserConfigurationRunner.cs" />
+    <Compile Include="WebBrowserUtility\DataWebScraperConfigurationArgument.cs" />
     <Compile Include="WebBrowserUtility\DataWebScraperElementFinder.cs" />
     <Compile Include="DataWebScraperStep\Property\DataWebScraperStepProperty.cs" />
     <Compile Include="DataWebScraperStep\Property\AttributeToFindElementByType.cs" />
@@ -75,13 +77,14 @@
     <Compile Include="DataWebScraperStep\Property\IDataWebScraperStepProperty.cs" />
     <Compile Include="DataWebScraperStep\Validator\IDataWebScrapperStepPropertyValidator.cs" />
     <Compile Include="DataWebScraperStep\Strategy\LoadWebPageDataWebScraperStep.cs" />
-    <Compile Include="DataWebScraperStep\Strategy\SetTextBoxDataWebScraperStep.cs" />
+    <Compile Include="DataWebScraperStep\Strategy\SetAttributeOnElementDataWebScraperStepStrategy.cs" />
     <Compile Include="Configuration\IDataWebScraperConfiguration.cs" />
     <Compile Include="Configuration\IDataWebScraperConfigurationReader.cs" />
     <Compile Include="IDataWebScraperServiceRunner.cs" />
     <Compile Include="DataWebScraperStep\Strategy\IDataWebScraperStepStrategyFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="WebBrowserUtility\WebBrowserConfigurationRunner.cs" />
+    <Compile Include="IteratorUtility\DataWebScraperSelfIterator.cs" />
+    <Compile Include="WebBrowserUtility\BackgroundWebBrowserConfigurationRunner.cs" />
     <Compile Include="WebBrowserUtility\IWebBrowserConfigurationRunner.cs" />
   </ItemGroup>
   <ItemGroup>
