@@ -44,6 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ApplicationUtility\IApplicationWrapper.cs" />
     <Compile Include="Configuration\DataWebScraperConfigurationWithSetter.cs" />
     <Compile Include="Configuration\DataWebScraperConfigurationRunnable.cs" />
     <Compile Include="Configuration\DataWebScraperConfiguration.cs" />
@@ -58,14 +59,23 @@
     <Compile Include="Configuration\DataWebScraperConfigurationReader.cs" />
     <Compile Include="Configuration\DataWebScraperConfigurationWriter.cs" />
     <Compile Include="Configuration\IDataWebScraperConfigurationWriter.cs" />
-    <Compile Include="DataWebScraperRunner.cs" />
     <Compile Include="DataWebScraperStep\GenericDataWebScraperStep.cs" />
     <Compile Include="DataWebScraperStep\IDataWebScraperStepRunnable.cs" />
     <Compile Include="DataWebScraperStep\Strategy\IDataWebScraperStepStrategy.cs" />
+    <Compile Include="IteratorUtility\DataWebScraperSelfIteratorFactory.cs" />
     <Compile Include="IteratorUtility\Iterator.cs" />
     <Compile Include="IteratorUtility\WebBroserInWebScraperStepRunnabelArgument.cs" />
     <Compile Include="JsonUtility\ConcreteConverter.cs" />
     <Compile Include="IteratorUtility\IDataWebScraperSelfIterator.cs" />
+    <Compile Include="ThreadUtility\IThreadWrapper.cs" />
+    <Compile Include="ThreadUtility\IThreadWrapperKiller.cs" />
+    <Compile Include="ThreadUtility\ThreadWrapper.cs" />
+    <Compile Include="WebBrowserUtility\AbstractWebBrowserConfigurationRunner.cs" />
+    <Compile Include="ApplicationUtility\ApplicationWrapper.cs" />
+    <Compile Include="IteratorUtility\IDataWebScraperSelfIteratorFactory.cs" />
+    <Compile Include="WebBrowserUtility\IBackgroundWebBrowserConfigurationRunner.cs" />
+    <Compile Include="WebBrowserUtility\IWebBrowserConfigurationRunnerProcessor.cs" />
+    <Compile Include="WebBrowserUtility\BackgroundWebBrowserConfigurationRunner.cs" />
     <Compile Include="WebBrowserUtility\ThreadLockWebBrowserConfigurationRunner.cs" />
     <Compile Include="WebBrowserUtility\DataWebScraperConfigurationArgument.cs" />
     <Compile Include="WebBrowserUtility\DataWebScraperElementFinder.cs" />
@@ -80,12 +90,16 @@
     <Compile Include="DataWebScraperStep\Strategy\SetAttributeOnElementDataWebScraperStepStrategy.cs" />
     <Compile Include="Configuration\IDataWebScraperConfiguration.cs" />
     <Compile Include="Configuration\IDataWebScraperConfigurationReader.cs" />
-    <Compile Include="IDataWebScraperServiceRunner.cs" />
     <Compile Include="DataWebScraperStep\Strategy\IDataWebScraperStepStrategyFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="IteratorUtility\DataWebScraperSelfIterator.cs" />
-    <Compile Include="WebBrowserUtility\BackgroundWebBrowserConfigurationRunner.cs" />
     <Compile Include="WebBrowserUtility\IWebBrowserConfigurationRunner.cs" />
+    <Compile Include="ThreadUtility\ThreadWrapperFactory.cs" />
+    <Compile Include="ThreadUtility\ThreadWrapperKiller.cs" />
+    <Compile Include="WebBrowserUtility\WebBrowserConfigurationRunnerProcessor.cs" />
+    <Compile Include="WebBrowserUtility\WebBrowserCreatedEventArgs.cs" />
+    <Compile Include="WebBrowserUtility\WebBrowserDisposer.cs" />
+    <Compile Include="WebBrowserUtility\WebBrowserDisposerFactory.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DataWebScraping.Util\DataWebScraping.Util.csproj">

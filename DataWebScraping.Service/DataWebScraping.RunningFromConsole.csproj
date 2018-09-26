@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{C680DE61-8BA8-4881-9739-C75212D0866B}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>DataWebScraping.ServiceRunner</RootNamespace>
-    <AssemblyName>DataWebScraping.ServiceRunner</AssemblyName>
+    <RootNamespace>DataWebScraping.RunningFromConsole</RootNamespace>
+    <AssemblyName>DataWebScraping.RunningFromConsole</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -44,8 +44,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DataWebScrapingServiceRunner.cs" />
-    <Compile Include="IDataWebScrapingServiceRunner.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

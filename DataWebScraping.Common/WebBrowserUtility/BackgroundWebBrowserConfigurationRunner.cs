@@ -10,77 +10,41 @@ using DataWebScraping.Common.Configuration;
 using DataWebScraping.Common.DataWebScraperStep;
 using DataWebScraping.Common.DataWebScraperStep.Converter;
 using DataWebScraping.Common.IteratorUtility;
+using DataWebScraping.Common.ThreadUtility;
 using DataWebScraping.Util;
 
 namespace DataWebScraping.Common.WebBrowserUtility
 {
-    public class BackGroundWebBrowserConfigurationRunner : IWebBrowserConfigurationRunner
-    {        
-        public IDataWebScraperConfiguration DataWebScraperConfiguration { get; private set; }
-        internal IDataWebScraperSelfIterator DataWebScraperSelfIterator { get; private set; }
-        public WebBrowser WebBrowser { get; private set; }
-        public IDataWebScraperToRunnableConverter DataWebScraperToRunnableConverter { get; }
-        public WebBrowserFactory WebBrowserFactory { get; }
-        public Thread MainThread { get; private set; }
-        private object Locker { get; }
-
-        public BackGroundWebBrowserConfigurationRunner(IDataWebScraperToRunnableConverter dataWebScraperToRunnableConverter, WebBrowserFactory webBrowserFactory)
+    public class BackgroundWebBrowserConfigurationRunner : AbstractWebBrowserConfigurationRunner, IBackgroundWebBrowserConfigurationRunner
+    {
+        public BackgroundWebBrowserConfigurationRunner() : this(new ThreadWrapperFactory(),
+            new WebBrowserFactory(),
+            new WebBrowserConfigurationRunnerProcessor(new DataWebScraperSelfIteratorFactory()),
+            new WebBrowserDisposerFactory())
         {
-            DataWebScraperToRunnableConverter = dataWebScraperToRunnableConverter;
-            WebBrowserFactory = webBrowserFactory;
+
         }
 
-        delegate void DisposeCallback();
-
-        public event EventHandler WebBrowserConfigurationRunWascompleted;
-
-        public void Run(IDataWebScraperConfiguration dataWebScraperConfiguration)
+        internal BackgroundWebBrowserConfigurationRunner(ThreadWrapperFactory threadWrapperFactory, 
+            WebBrowserFactory webBrowserFactory, 
+            WebBrowserConfigurationRunnerProcessor 
+            webBrowserConfigurationRunnerProcessor, 
+            WebBrowserDisposerFactory webBrowserDisposerFactory) : 
+            base(threadWrapperFactory, 
+                webBrowserFactory, 
+                webBrowserConfigurationRunnerProcessor, 
+                webBrowserDisposerFactory)
         {
-            DataWebScraperConfiguration = dataWebScraperConfiguration;
-            MainThread = new Thread(() => {
-                WebBrowser = WebBrowserFactory.GetWebBrowser();
-                DataWebScraperSelfIterator = new DataWebScraperSelfIterator(new DataWebScraperToRunnableConverter(new DataWebScraperStep.Strategy.DataWebScraperStepStrategyFactory()), WebBrowser);
-                DataWebScraperSelfIterator.SetElements(DataWebScraperConfiguration.DataWebScraperSteps.OrderBy(s => s.StepSequence));
-                DataWebScraperSelfIterator.Iterate();
-                DataWebScraperSelfIterator.DataWebScraperSelfIteratorWasComplete += DataWebScraperSelfIterator_DataWebScraperSelfIteratorWasComplete;
-                Application.Run();
-            });
-            MainThread.SetApartmentState(ApartmentState.STA);
-            MainThread.Start();                       
         }
 
-        private void DataWebScraperSelfIterator_DataWebScraperSelfIteratorWasComplete(object sender, EventArgs e)
+        internal override bool WaitForProcessToBeCompleted => false;
+
+        public event EventHandler WebBrowserWasCreatedEvent;
+
+        internal override void WebBrowserWasCreated(WebBrowser webBrowser)
         {
-            KillMainThread();
-            WebBrowserConfigurationRunWascompleted?.Invoke(this, null);
+            WebBrowserWasCreatedEvent?.Invoke(this, new WebBrowserCreatedEventArgs(webBrowser));
         }
 
-        [SecurityPermissionAttribute(SecurityAction.Demand, ControlThread = true)]
-        private void KillMainThread()
-        {
-            DisposeWebBrowser();
-
-            if (MainThread.IsAlive)
-            {
-                MainThread.Abort();
-            }
-            Application.Exit();            
-        }
-
-        private void DisposeWebBrowser()
-        {
-            if (!WebBrowser.IsDisposed)
-            {
-                if (WebBrowser.InvokeRequired)
-                {
-                    DisposeCallback d = new DisposeCallback(DisposeWebBrowser);
-                    WebBrowser.Invoke(d);
-                }
-                else
-                {
-                    WebBrowser.Dispose();
-                }
-            }
-        }
     }
 }

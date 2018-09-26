@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace DataWebScraping.Common.IteratorUtility
 {
-    internal interface IDataWebScraperSelfIterator
+    public interface IDataWebScraperSelfIterator
     {
         event EventHandler DataWebScraperSelfIteratorWasComplete;
         void SetElements(IEnumerable<IDataWebScraperStep> orderedEnumerable);

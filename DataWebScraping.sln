@@ -7,9 +7,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataWebScraping.Common", "D
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataWebScraping.Util", "DataWebScraping.Util\DataWebScraping.Util.csproj", "{DE3692D7-B07A-4FC9-A303-2962E9175207}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataWebScraping.ServiceRunner", "DataWebScraping.Service\DataWebScraping.ServiceRunner.csproj", "{C680DE61-8BA8-4881-9739-C75212D0866B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataWebScraping.RunningFromConsole", "DataWebScraping.Service\DataWebScraping.RunningFromConsole.csproj", "{C680DE61-8BA8-4881-9739-C75212D0866B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataWebScraping.ServiceConfigurationCreator", "DataWebScraping.ServiceConfigurationCreator\DataWebScraping.ServiceConfigurationCreator.csproj", "{F893E067-44F5-4CD5-9A21-05C5D6F99F4E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataWebScraping.RunningFromWinForm", "DataWebScraping.RunningFromWinForm\DataWebScraping.RunningFromWinForm.csproj", "{C18DDAC5-8A52-4FB4-BC4A-9864532760B7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{F893E067-44F5-4CD5-9A21-05C5D6F99F4E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F893E067-44F5-4CD5-9A21-05C5D6F99F4E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F893E067-44F5-4CD5-9A21-05C5D6F99F4E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C18DDAC5-8A52-4FB4-BC4A-9864532760B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C18DDAC5-8A52-4FB4-BC4A-9864532760B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C18DDAC5-8A52-4FB4-BC4A-9864532760B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C18DDAC5-8A52-4FB4-BC4A-9864532760B7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

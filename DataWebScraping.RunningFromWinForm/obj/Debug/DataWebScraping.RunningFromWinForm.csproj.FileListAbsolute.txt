@@ -1,0 +1,16 @@
+C:\Users\Fam Ordonez Enriquez\Source\Repos\DataWebScraping\DataWebScraping.RunningFromWinForm\bin\Debug\DataWebScraping.RunningFromWinForm.exe.config
+C:\Users\Fam Ordonez Enriquez\Source\Repos\DataWebScraping\DataWebScraping.RunningFromWinForm\bin\Debug\DataWebScraping.RunningFromWinForm.exe
+C:\Users\Fam Ordonez Enriquez\Source\Repos\DataWebScraping\DataWebScraping.RunningFromWinForm\bin\Debug\DataWebScraping.RunningFromWinForm.pdb
+C:\Users\Fam Ordonez Enriquez\Source\Repos\DataWebScraping\DataWebScraping.RunningFromWinForm\bin\Debug\DataWebScraping.Common.dll
+C:\Users\Fam Ordonez Enriquez\Source\Repos\DataWebScraping\DataWebScraping.RunningFromWinForm\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Fam Ordonez Enriquez\Source\Repos\DataWebScraping\DataWebScraping.RunningFromWinForm\bin\Debug\DataWebScraping.Util.dll
+C:\Users\Fam Ordonez Enriquez\Source\Repos\DataWebScraping\DataWebScraping.RunningFromWinForm\bin\Debug\DataWebScraping.Common.pdb
+C:\Users\Fam Ordonez Enriquez\Source\Repos\DataWebScraping\DataWebScraping.RunningFromWinForm\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Fam Ordonez Enriquez\Source\Repos\DataWebScraping\DataWebScraping.RunningFromWinForm\bin\Debug\DataWebScraping.Util.pdb
+C:\Users\Fam Ordonez Enriquez\Source\Repos\DataWebScraping\DataWebScraping.RunningFromWinForm\obj\Debug\DataWebScraping.RunningFromWinForm.csprojResolveAssemblyReference.cache
+C:\Users\Fam Ordonez Enriquez\Source\Repos\DataWebScraping\DataWebScraping.RunningFromWinForm\obj\Debug\DataWebScraping.RunningFromWinForm.Main.resources
+C:\Users\Fam Ordonez Enriquez\Source\Repos\DataWebScraping\DataWebScraping.RunningFromWinForm\obj\Debug\DataWebScraping.RunningFromWinForm.Properties.Resources.resources
+C:\Users\Fam Ordonez Enriquez\Source\Repos\DataWebScraping\DataWebScraping.RunningFromWinForm\obj\Debug\DataWebScraping.RunningFromWinForm.csproj.GenerateResource.Cache
+C:\Users\Fam Ordonez Enriquez\Source\Repos\DataWebScraping\DataWebScraping.RunningFromWinForm\obj\Debug\DataWebScraping.RunningFromWinForm.csproj.CoreCompileInputs.cache
+C:\Users\Fam Ordonez Enriquez\Source\Repos\DataWebScraping\DataWebScraping.RunningFromWinForm\obj\Debug\DataWebScraping.RunningFromWinForm.exe
+C:\Users\Fam Ordonez Enriquez\Source\Repos\DataWebScraping\DataWebScraping.RunningFromWinForm\obj\Debug\DataWebScraping.RunningFromWinForm.pdb
